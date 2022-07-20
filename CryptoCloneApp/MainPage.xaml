@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CryptoCloneApp.Controls"
+             x:Class="CryptoCloneApp.MainPage"
+             >
+    <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout
+            Padding="30,0"
+            VerticalOptions="FillAndExpand"
+            Spacing="0"
+           >
+            <StackLayout.Background>
+                <LinearGradientBrush StartPoint="1,0"
+                                     EndPoint="0,0.45">
+                    <GradientStop Color="#454545" Offset="0.0" />
+                    <GradientStop Color="#121212" Offset="0.75" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <VerticalStackLayout MaximumWidthRequest="300" Spacing="10">
+
+                <Image
+                    Source="logo_crypto.png"
+                    SemanticProperties.Description="This bitcoin logo!"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Margin="0,60,0,30"/>
+
+                <Label
+                    Text="Crypto"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="Title"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    />
+
+                <Label
+                    Text="O maior marketplace de NFTs do Brasil"
+                    SemanticProperties.HeadingLevel="Level2"
+                    SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
+                    FontSize="Subtitle"
+                    TextColor="Silver"
+                    HorizontalOptions="Center"
+                    />
+
+                
+                <Border x:Name="border"
+                        Stroke="Silver"
+                        BackgroundColor="Transparent"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15"
+                        Margin="0,40,0,0"
+                        >
+
+                    <VerticalStackLayout>
+                        <local:TextField
+                                PrefixIcon="icon_user_dark.png"
+                                Placeholder="Usuário"
+                                />
+
+ 
+
+                        <Line X1="{Binding Width, Source={x:Reference border}}"
+                              Stroke="Silver"
+                              />
+
+ 
+
+                        <local:TextField
+                            PrefixIcon="icon_password_dark.png"
+                            SuffixIcon="icon_eye_dark.png"
+                            Placeholder="Senha"
+                            IsPassword="True"
+                            />
+
+                    </VerticalStackLayout>
+                </Border>
+                
+                <Label
+                    Text="Recuperar a senha?"
+                    SemanticProperties.HeadingLevel="Level2"
+                    SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
+                    FontSize="12"
+                    TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    >
+
+                </Label>
+
+ 
+
+                <Button
+                   IsVisible="false"
+                    x:Name="CounterBtn"
+                    Text="Clicks me"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="OnCounterClicked"
+                    HorizontalOptions="Center" />
+
+ 
+
+                <Button Text="Entrar"
+                        Margin="0,20"
+                        >
+                    <Button.Background>
+                        <LinearGradientBrush
+                                        StartPoint="0,0"
+                                        EndPoint="0.75,0.75">
+                            <GradientStop Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}" Offset="0.1" />
+                            <GradientStop Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource SecondaryLight}}" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Line X1="300"
+                      Stroke="Silver"
+                      HorizontalOptions="CenterAndExpand"
+                    />
+
+ 
+
+                <Button x:Name="btnMetamask"
+                        Text="Entrar com Metamask"
+                        Margin="0,20"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
+                        BorderWidth="2"
+                        TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
+                        Pressed="Button_Pressed"
+                        Released="Button_Released"
+                        ImageSource="icon_metamask.png"
+                        ContentLayout="Right, 10"
+                        HeightRequest="40"
+                        >
+                </Button>
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
