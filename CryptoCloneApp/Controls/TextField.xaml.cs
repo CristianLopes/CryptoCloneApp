@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Behaviors;
+
 namespace CryptoCloneApp.Controls;
 
 public partial class TextField : ContentView
@@ -41,5 +43,19 @@ public partial class TextField : ContentView
     public TextField()
 	{
 		InitializeComponent();
+        App.ThemeChanged += OnThemeChanged;
 	}
+
+    private void OnThemeChanged(AppTheme currentTheme)
+    {
+        prefixImage.Behaviors.Clear();
+        suffixImage.Behaviors.Clear();
+        var behavior = new IconTintColorBehavior
+        {
+            TintColor = currentTheme == AppTheme.Dark ? App.IconColorDarkTheme : App.IconColorLightTheme,
+        };
+
+        prefixImage.Behaviors.Add(behavior);
+        suffixImage.Behaviors.Add(behavior);
+    }
 }

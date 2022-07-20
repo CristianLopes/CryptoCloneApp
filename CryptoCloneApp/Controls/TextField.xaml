@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CryptoCloneApp.Controls.TextField"
              xmlns:local="clr-namespace:CryptoCloneApp.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="local:TextField"
              x:Name="this"
              >
@@ -13,12 +14,16 @@
            HeightRequest="50"
            >
 
-        <Image
+        <Image  x:Name="prefixImage"
                 Source="{Binding PrefixIcon, Source={x:Reference this}}"
                 HeightRequest="20"
                 VerticalOptions="Center"
                 HorizontalOptions="Start"
-            />
+               >
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="{StaticResource IconColor}" />
+            </Image.Behaviors>
+        </Image>
 
  
 
@@ -28,15 +33,21 @@
                IsSpellCheckEnabled="False"
                HorizontalOptions="FillAndExpand"
                VerticalOptions="CenterAndExpand"
-               TextColor="White"
+               TextColor="{DynamicResource BorderColor}"
+               PlaceholderColor="{DynamicResource BorderColor}"
                IsPassword="{Binding IsPassword, Source={x:Reference this}}"
               />
 
- 
 
-        <Image Source="{Binding SuffixIcon, Source={x:Reference this}}"
+
+        <Image x:Name="suffixImage"
+               Source="{Binding SuffixIcon, Source={x:Reference this}}"
                Grid.Column="2"
                HeightRequest="20"
-               />
+               >
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="{StaticResource IconColor}" />
+            </Image.Behaviors>
+        </Image>
     </Grid>
 </ContentView>
