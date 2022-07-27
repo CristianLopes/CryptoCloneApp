@@ -9,82 +9,83 @@
              Style="{DynamicResource BackgroundGradient}"
              >
     <ScrollView>
-        <StackLayout>
+        <StackLayout x:Name="stackParentOfAll" Opacity="0">
             <VerticalStackLayout 
                     MaximumWidthRequest="300" 
                     Spacing="10"
                     BackgroundColor="Transparent">
 
-                <Image 
-                    x:Name="image"
-                    HeightRequest="40"
-                    WidthRequest="40"
-                    Source="{AppThemeBinding 
-                                Light='change_theme_to_dark.png', 
-                                Dark='change_theme_to_light.png'}"
-                    HorizontalOptions="End"
-                    >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ChageThemeCommand}" CommandParameter="{x:Reference image}"/>
-                    </Image.GestureRecognizers>
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource IconColor}" />
-                    </Image.Behaviors>
-                </Image>
-                
-                <Image
-                    Source="icon_login.png"
-                    SemanticProperties.Description="This bitcoin logo!"
-                    HeightRequest="100"
-                    HorizontalOptions="Center"
-                    Margin="0,40,0,30"
-                    />
+                <VerticalStackLayout x:Name="stackTop">
+                    <Image 
+                        x:Name="image"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        Source="{AppThemeBinding 
+                                    Light='change_theme_to_dark.png', 
+                                    Dark='change_theme_to_light.png'}"
+                        HorizontalOptions="End"
+                          >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChageThemeCommand}" CommandParameter="{x:Reference image}"/>
+                        </Image.GestureRecognizers>
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource IconColor}" />
+                        </Image.Behaviors>
+                    </Image>
 
-                <Label
-                    Style="{StaticResource LabelTitle}"
-                    Text="Crypto"
-                    SemanticProperties.HeadingLevel="Level1"
-                    HorizontalOptions="Center"
-                    />
+                    <Image
+                        Source="icon_login.png"
+                        SemanticProperties.Description="This bitcoin logo!"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        Margin="0,40,0,30"
+                        />
 
-                <Label
-                    Style="{StaticResource LabelSubTitle}"
-                    Text="O maior marketplace de NFTs do Brasil"
-                    SemanticProperties.HeadingLevel="Level2"
-                    SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
-                    />
+                    <Label
+                        Style="{StaticResource LabelTitle}"
+                        Text="Crypto"
+                        SemanticProperties.HeadingLevel="Level1"
+                        HorizontalOptions="Center"
+                        />
 
-                
-                <Border x:Name="border"
+                    <Label
+                        Style="{StaticResource LabelSubTitle}"
+                        Text="O maior marketplace de NFTs do Brasil"
+                        SemanticProperties.HeadingLevel="Level2"
+                        SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
+                        />
+
+
+                    <Border x:Name="border"
                         Stroke="{DynamicResource BorderColor}"
                         StrokeThickness="1"
                         StrokeShape="RoundRectangle 15"
                         Margin="0,40,0,0"
                         >
 
-                    <VerticalStackLayout>
-                        <local:TextField
+                        <VerticalStackLayout>
+                            <local:TextField
                                 PrefixIcon="icon_user_dark.png"
                                 Placeholder="Usuário"
                                 />
 
 
-                        <Line X1="{Binding Width, Source={x:Reference border}}"
+                            <Line X1="{Binding Width, Source={x:Reference border}}"
                               Stroke="{DynamicResource BorderColor}"
                               />
- 
 
-                        <local:TextField
+
+                            <local:TextField
                             PrefixIcon="icon_password_dark.png"
                             SuffixIcon="icon_eye_dark.png"
                             Placeholder="Senha"
                             IsPassword="True"
                             />
 
-                    </VerticalStackLayout>
-                </Border>
+                        </VerticalStackLayout>
+                    </Border>
 
-                <Label
+                    <Label
                     Text="Recuperar a senha?"
                     SemanticProperties.HeadingLevel="Level2"
                     SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
@@ -92,31 +93,34 @@
                     FontFamily="InterRegular"
                     TextColor="{AppThemeBinding Light={StaticResource PrimaryDark}, Dark={StaticResource Secondary}}"
                     HorizontalOptions="End"
-                    >
+                    />
+                </VerticalStackLayout>
 
-                </Label>
 
-                <Button Text="Entrar"
+                <VerticalStackLayout x:Name="stackBottom">
+                    <Button Text="Entrar"
                         Style="{StaticResource GradientButton}"
                         Margin="0,20"
                         Command="{Binding LoginCommand}"
-                        >
-                </Button>
+                        />
 
-                <Line X1="300"
+
+                    <Line X1="150"
                       Stroke="{DynamicResource BorderColor}"
                       HorizontalOptions="CenterAndExpand"
                     />
 
- 
 
-                <Button x:Name="btnMetamask"
+
+                    <Button x:Name="btnMetamask"
                         Style="{StaticResource OutlinedButton}"
                         Text="Entrar com Metamask"
                         Margin="0,20"
                         ImageSource="icon_metamask.png"
-                        >
-                </Button>
+                        />
+                </VerticalStackLayout>
+
+
             </VerticalStackLayout>
         </StackLayout>
     </ScrollView>

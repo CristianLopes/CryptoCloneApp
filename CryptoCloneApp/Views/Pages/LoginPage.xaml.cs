@@ -9,6 +9,25 @@ public partial class LoginPage : ContentPage
     {
         InitializeComponent();
         BindingContext = loginPageViewModel;
+
+        Loaded += LoginPage_Loaded;
+    }
+
+    private async void LoginPage_Loaded(object sender, EventArgs e)
+    {
+        _ = StartAnimation();
+    }
+
+    private async Task StartAnimation()
+    {
+        var animations = new List<Task>();
+        await stackTop.TranslateTo(0, -75);
+        await stackBottom.TranslateTo(0, 75);
+        animations.Add(stackParentOfAll.FadeTo(1, 1000, Easing.BounceOut));
+        animations.Add(stackTop.TranslateTo(0,0, 1000));
+        animations.Add(stackBottom.TranslateTo(0,0, 1000));
+
+        await Task.WhenAll(animations);
     }
 
     private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

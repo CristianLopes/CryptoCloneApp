@@ -7,7 +7,7 @@
     <Color x:Key="FontColorTitle">White</Color>
     <Color x:Key="FontColorSubTitle">#919191</Color>
     <Color x:Key="IconColor">White</Color>
-    <Color x:Key="BorderColor">White</Color>
+    <Color x:Key="BorderColor">#919191</Color>
     <Color x:Key="BackgroundButtonGradientColor1">#9A4DFF</Color>
     <Color x:Key="BackgroundButtonGradientColor2">#F600DD</Color>
 </ResourceDictionary>
