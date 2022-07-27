@@ -3,11 +3,33 @@
     x:Class="CryptoCloneApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CryptoCloneApp"
+    xmlns:local="clr-namespace:CryptoCloneApp.Views.Pages"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage"/>
+
+    <TabBar Route="HomePage">
+        <Tab Icon="icon_store.png">
+            <ShellContent ContentTemplate="{DataTemplate local:NftListPage}"/>
+        </Tab>
+
+        <Tab Icon="icon_wallet.png">
+            <ShellContent ContentTemplate="{DataTemplate local:DepositPage}"/>
+        </Tab>
+
+        <Tab Icon="icon_plus_tab.png">
+            <ShellContent ContentTemplate="{DataTemplate local:NftListPage}"/>
+        </Tab>
+
+        <Tab Icon="icon_ranking.png">
+            <ShellContent ContentTemplate="{DataTemplate local:RankingPage}"/>
+        </Tab>
+
+        <Tab Icon="icon_profile.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Markup;
+using CryptoCloneApp.ViewModels;
+using CryptoCloneApp.Views.Pages;
 
 namespace CryptoCloneApp;
 
@@ -18,6 +20,16 @@ public static class MauiProgram
 				fonts.AddFont("Inter-Medium.ttf", "InterMedium");
 				fonts.AddFont("Inter-Regular.ttf", "InterRegular");
 			}).UseMauiCommunityToolkit().UseMauiCommunityToolkitMarkup(); ;
+
+
+		builder.Services.AddTransient<LoginPage>();
+		builder.Services.AddTransient<DepositPage>();
+		builder.Services.AddTransient<NftListPage>();
+		builder.Services.AddTransient<NftDetailPage>();
+		builder.Services.AddTransient<ProfilePage>();
+		builder.Services.AddTransient<RankingPage>();
+
+		builder.Services.AddTransient<LoginPageViewModel>();
 
 		return builder.Build();
 	}

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary     
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="Padding" Value="32"/>
+    </Style>
+
+    <Style x:Key="BackgroundGradient" TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="1,0"
+                                     EndPoint="0,0.45">
+                    <GradientStop Color="{DynamicResource BackgroundGradientColor1}" Offset="0.0" />
+                    <GradientStop Color="{DynamicResource BackgroundGradientColor2}" Offset="0.75" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="LabelTitle" TargetType="Label">
+        <Setter Property="FontFamily" Value="InterBold"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="TextColor" Value="{DynamicResource FontColorTitle}"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="LabelSubTitle" TargetType="Label">
+        <Setter Property="FontFamily" Value="InterRegular"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="TextColor" Value="{DynamicResource FontColorSubTitle}"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Border">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="GradientButton" TargetType="Button">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontFamily" Value="InterBold"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush
+                                        StartPoint="0,0"
+                                        EndPoint="0.75,0.75">
+                    <GradientStop Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource Primary}}" Offset="0.1" />
+                    <GradientStop Color="{AppThemeBinding Light={StaticResource PrimaryDark}, Dark={StaticResource Secondary}}" Offset="0.75" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="OutlinedButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource Secondary}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource Secondary}}"/>
+        <Setter Property="BorderWidth" Value="2"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="ContentLayout" Value="Right, 10"/>
+    </Style>
+</ResourceDictionary>
