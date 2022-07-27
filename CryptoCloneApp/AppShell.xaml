@@ -7,8 +7,9 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
+        Route="LoginPage"
         ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="LoginPage"/>
+        />
 
     <TabBar Route="HomePage">
         <Tab Icon="icon_store.png">
@@ -16,7 +17,7 @@
         </Tab>
 
         <Tab Icon="icon_wallet.png">
-            <ShellContent ContentTemplate="{DataTemplate local:DepositPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:WalletPage}"/>
         </Tab>
 
         <Tab Icon="icon_plus_tab.png">

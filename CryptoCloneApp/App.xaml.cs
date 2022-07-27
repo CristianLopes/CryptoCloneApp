@@ -1,4 +1,6 @@
 ﻿using CryptoCloneApp.Resources.Styles;
+using Java.Util;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CryptoCloneApp;
 
@@ -11,15 +13,24 @@ public partial class App : Application
 
     public static readonly Color IconColorDarkTheme = Colors.White;
     public static readonly Color IconColorLightTheme = Colors.Black;
-	public App()
+    public static IServiceProvider ServiceProvider;
+	public App(IServiceProvider serviceProvider)
 	{
-		InitializeComponent();
+        Set(serviceProvider);
+        InitializeComponent();
 
 		InitTheme();
         MainPage = new AppShell();
-	}
+    }
 
-	private void InitTheme()
+    public static void Set(IServiceProvider serviceProvider)
+    {
+        ServiceProvider = serviceProvider;
+    }
+
+    public static T GetService<T>() => ServiceProvider.GetService<T>();
+
+    private void InitTheme()
 	{
         Application.Current.UserAppTheme = AppTheme.Dark;
         Application.Current.Resources.MergedDictionaries.Add(DarkTheme);

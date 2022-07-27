@@ -1,8 +1,8 @@
 namespace CryptoCloneApp.Views.Pages;
 
-public partial class DepositPage : ContentPage
+public partial class WalletPage : ContentPage
 {
-	public DepositPage()
+	public WalletPage()
 	{
 		InitializeComponent();
 	}

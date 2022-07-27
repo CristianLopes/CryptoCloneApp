@@ -35,8 +35,9 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\logo_crypto.png" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<!--<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />-->
-		<MauiSplashScreen Include="Resources\Images\banner_login.png" Color="#121212" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\icon_login.png" 
+						  Color="#121212" 
+						  BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -79,7 +80,10 @@
 	  <MauiXaml Update="Resources\Styles\LightTheme.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Pages\DepositPage.xaml">
+	  <MauiXaml Update="Views\Custom\Controls\Header.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\WalletPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\NftDetailPage.xaml">
@@ -97,6 +101,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Pages\WalletPage.xaml.cs">
+	    <DependentUpon>WalletPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Pages\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>

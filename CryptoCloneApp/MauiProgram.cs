@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Markup;
 using CryptoCloneApp.ViewModels;
+using CryptoCloneApp.Views.Custom.Controls;
 using CryptoCloneApp.Views.Pages;
 
 namespace CryptoCloneApp;
@@ -23,14 +24,22 @@ public static class MauiProgram
 
 
 		builder.Services.AddTransient<LoginPage>();
-		builder.Services.AddTransient<DepositPage>();
+		builder.Services.AddTransient<WalletPage>();
 		builder.Services.AddTransient<NftListPage>();
 		builder.Services.AddTransient<NftDetailPage>();
 		builder.Services.AddTransient<ProfilePage>();
 		builder.Services.AddTransient<RankingPage>();
-
+		
 		builder.Services.AddTransient<LoginPageViewModel>();
+		builder.Services.AddTransient<WalletPageViewModel>();
+		builder.Services.AddTransient<NftListPageViewModel>();
+		builder.Services.AddTransient<NftDetailPageViewModel>();
+		builder.Services.AddTransient<ProfilePageViewModel>();
+		builder.Services.AddTransient<RankingPageViewModel>();
 
-		return builder.Build();
+        builder.Services.AddTransient<Header>();
+        builder.Services.AddTransient<HeaderViewModel>();
+
+        return builder.Build();
 	}
 }
