@@ -2,15 +2,238 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
+             xmlns:models="clr-namespace:CryptoCloneApp.Models"
              x:Class="CryptoCloneApp.Views.Pages.NftListPage"
              Style="{DynamicResource BackgroundGradient}"
              >
-    <VerticalStackLayout>
+    <Grid RowDefinitions="60, 48, 80, *, 0" Margin="0">
         <local:Header/>
 
-        <Label 
-            Style="{StaticResource LabelTitle}"
-            Text="NFT List Page"
-            />
-    </VerticalStackLayout>
+        <Border x:Name="border"
+                HeightRequest="48"
+                Stroke="{DynamicResource StrokeControlBorder}"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 24"
+                Margin="0,20,0,0"
+                BackgroundColor="{DynamicResource BackgroundControlBorder}"
+                Grid.Row="1"
+                >
+            <Grid Margin="14,0">
+                <Entry 
+                    x:Name="entrySearch"
+                    TextColor="{AppThemeBinding Dark={StaticResource Gray200}, Light=Black}"
+                    PlaceholderColor="{AppThemeBinding Dark={StaticResource Gray400}, Light=Black}"
+                    FontSize="14"
+                    FontFamily="{StaticResource FontBold}"
+                    Margin="30,4,0,0"
+                    Placeholder="Pesquise por categorias, artistas..."
+                    Focused="Entry_Focused"
+                    Unfocused="Entry_Unfocused"
+                />
+
+                <Image x:Name="iconSearch"
+                       Source="icon_search.png" 
+                       HorizontalOptions="Start"
+                       >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+
+        <CollectionView x:Name="collectionViewFilters" Grid.Row="2">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Todos</x:String>
+                    <x:String>3D</x:String>
+                    <x:String>2D</x:String>
+                    <x:String>GIFs</x:String>
+                    <x:String>Ilustrações</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="border"
+                            HeightRequest="35"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 24"
+                            Stroke="{DynamicResource StrokeControlBorder}"
+                            Margin="0,24"
+                            BackgroundColor="{DynamicResource BackgroundControlBorder}"
+                             >
+                        <Label Text="{Binding .}"
+                               FontFamily="{StaticResource FontBold}"
+                               FontSize="16"
+                               VerticalTextAlignment="Center"
+                               Padding="16,0"
+                               />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView x:Name="collectionViewNfts" Grid.Row="3">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="24"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type models:NftListItem}">
+                    <models:NftListItem 
+                        Image="nfts/nft_0.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Graphic2D"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_1.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Graphic2D"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_2.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Graphic3D"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_3.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Graphic3D"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_4.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Gif"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_5.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Gif"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_6.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Illustration"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_7.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Illustration"
+                        />
+
+                    <models:NftListItem 
+                        Image="nfts/nft_8.png"
+                        OwnerImage="avatars/avatar_hacker.png"
+                        OwnerName="Hacker"
+                        EthPrice="1.2 ETH"
+                        UsdPrice="$2.453,23"
+                        NftType="Illustration"                        
+                        />
+                </x:Array>
+            </CollectionView.ItemsSource>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:NftListItem}">
+                    <Border  StrokeShape="RoundRectangle 12">
+                        <Grid HeightRequest="360"
+                          RowDefinitions="*,80">
+                            <Image Source="{Binding Image}"
+                               Aspect="AspectFill"
+                               Grid.RowSpan="2"
+                               />
+
+
+
+                            <BoxView 
+                                Color="{StaticResource Gray900}"
+                                Grid.Row="1"
+                                Opacity="0.5"
+                             />
+
+
+
+                            <Grid ColumnDefinitions="40,*,*"
+                              RowDefinitions="*,*"
+                              HeightRequest="80"
+                              Grid.Row="1"
+                              Padding="20"
+                              ColumnSpacing="12"
+                              >
+
+                                <Image Source="{Binding OwnerImage}"
+                                   VerticalOptions="Center"
+                                   Grid.RowSpan="2"
+                                   />
+
+                                <Label Grid.Column="1" 
+                                   Text="Owned by"
+                                   FontSize="12"
+                                   TextColor="#FFA7FF"
+                                   />
+
+                                <Label Grid.Row="1"
+                                   Grid.Column="1" 
+                                   FontSize="18"
+                                   FontFamily="{StaticResource FontBold}"
+                                   Text="{Binding OwnerName}"
+                                   />
+
+                                <Label Grid.Column="2"
+                                   FontSize="12"
+                                   TextColor="#FFA7FF"
+                                   Text="{Binding UsdPrice}"
+                                      HorizontalTextAlignment="End"
+                                   />
+                                <Label Grid.Row="1" 
+                                   Grid.Column="2"  
+                                   Text="{Binding EthPrice}"
+                                   FontSize="18"
+                                   FontFamily="{StaticResource FontBold}"
+                                   HorizontalTextAlignment="End"
+                                   />
+
+                            </Grid>
+
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
 </ContentPage>

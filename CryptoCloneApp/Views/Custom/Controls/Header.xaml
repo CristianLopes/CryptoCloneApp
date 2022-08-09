@@ -5,13 +5,12 @@
              x:Class="CryptoCloneApp.Views.Custom.Controls.Header"
              xmlns:vm="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
              x:DataType="vm:HeaderViewModel">
-    <Grid Margin="0,28,0,0" ColumnDefinitions="40,*,40">
+    <Grid Margin="0,20,0,0" ColumnDefinitions="40,*,40,20">
         <Image 
                 x:Name="image"
-                HeightRequest="40"
-                WidthRequest="40"
+                HeightRequest="31"
                 Source="icon_menu.png"
-                HorizontalOptions="Start"
+                HorizontalOptions="End"
                 >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding ChageThemeCommand}" CommandParameter="{x:Reference image}"/>
@@ -20,8 +19,7 @@
 
 
         <Image Grid.Column="2"
-               HeightRequest="40"
-               WidthRequest="40"
+               WidthRequest="60"
                Source="icon_menu_hamburger.png"
                HorizontalOptions="Start"
                 >

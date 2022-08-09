@@ -10,4 +10,14 @@
     <Color x:Key="BorderColor">#141414</Color>
     <Color x:Key="BackgroundButtonGradientColor1">#0093CD</Color>
     <Color x:Key="BackgroundButtonGradientColor2">#5EEBFF</Color>
+    <Color x:Key="FontColorNormal">#141414</Color>
+
+    <Color x:Key="BackgroundControlBorder">Transparent</Color>
+    <Color x:Key="StrokeControlBorder">#474053</Color>
+
+    <Color x:Key="BackgroundControlBorderStrong">Transparent</Color>
+
+    <Color x:Key="ItemTextColorPrimary">Black</Color>
+    <Color x:Key="ItemTextColorSecondary">#7F35FF</Color>
+    <Color x:Key="ItemTextColorTerciary">#4000F3</Color>
 </ResourceDictionary>

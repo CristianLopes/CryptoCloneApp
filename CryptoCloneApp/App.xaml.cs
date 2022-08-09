@@ -1,7 +1,4 @@
 ﻿using CryptoCloneApp.Resources.Styles;
-using Java.Util;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace CryptoCloneApp;
 
 public partial class App : Application

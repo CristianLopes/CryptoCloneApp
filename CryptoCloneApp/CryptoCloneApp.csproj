@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net6.0-android</TargetFrameworks>
+		<!--<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>-->
+		<!--<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>-->
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -35,9 +36,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\logo_crypto.png" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\icon_login.png" 
-						  Color="#121212" 
-						  BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\icon_login.png" Color="#121212" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -55,10 +54,61 @@
 	  <None Remove="Resources\Fonts\Inter-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Inter-Medium.ttf" />
 	  <None Remove="Resources\Fonts\Inter-Regular.ttf" />
+	  <None Remove="Resources\Images\avatars\avatar_feux.png" />
+	  <None Remove="Resources\Images\avatars\avatar_freed.png" />
+	  <None Remove="Resources\Images\nfts\0.png" />
+	  <None Remove="Resources\Images\nfts\1.png" />
+	  <None Remove="Resources\Images\nfts\2.png" />
+	  <None Remove="Resources\Images\nfts\3.png" />
+	  <None Remove="Resources\Images\nfts\4.png" />
+	  <None Remove="Resources\Images\nfts\5.png" />
+	  <None Remove="Resources\Images\nfts\6.png" />
+	  <None Remove="Resources\Images\nfts\7.png" />
+	  <None Remove="Resources\Images\nfts\8.png" />
+	  <None Remove="Resources\Images\nfts\nft_0.png" />
+	  <None Remove="Resources\Images\nfts\nft_1.png" />
+	  <None Remove="Resources\Images\nfts\nft_2.png" />
+	  <None Remove="Resources\Images\nfts\nft_3.png" />
+	  <None Remove="Resources\Images\nfts\nft_4.png" />
+	  <None Remove="Resources\Images\nfts\nft_5.png" />
+	  <None Remove="Resources\Images\nfts\nft_6.png" />
+	  <None Remove="Resources\Images\nfts\nft_7.png" />
+	  <None Remove="Resources\Images\nfts\nft_8.png" />
+	  <None Remove="Resources\Images\ranking\icon_down.png" />
+	  <None Remove="Resources\Images\ranking\icon_eth.png" />
+	  <None Remove="Resources\Images\ranking\icon_up.png" />
+	  <None Remove="Resources\Images\ranking\image_brandon.png" />
+	  <None Remove="Resources\Images\ranking\image_cody.png" />
+	  <None Remove="Resources\Images\ranking\image_floyd.png" />
+	  <None Remove="Resources\Images\ranking\image_gladys.png" />
+	  <None Remove="Resources\Images\ranking\image_kristin.png" />
+	  <None Remove="Resources\Images\ranking\image_mitchell.png" />
+	  <None Remove="Resources\Images\ranking\image_wendy.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\AppIcon\logo_crypto.png" />
+	  <MauiImage Include="Resources\Images\avatars\avatar_feux.png" />
+	  <MauiImage Include="Resources\Images\avatars\avatar_hacker.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_0.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_1.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_2.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_3.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_4.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_5.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_6.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_7.png" />
+	  <MauiImage Include="Resources\Images\nfts\nft_8.png" />
+	  <MauiImage Include="Resources\Images\ranking\icon_up.png" />
+	  <MauiImage Include="Resources\Images\ranking\icon_down.png" />
+	  <MauiImage Include="Resources\Images\ranking\icon_eth.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_brandon.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_cody.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_floyd.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_gladys.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_kristin.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_mitchell.png" />
+	  <MauiImage Include="Resources\Images\ranking\image_wendy.png" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -2,15 +2,254 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
+             xmlns:models="clr-namespace:CryptoCloneApp.Models"
+             xmlns:converters="clr-namespace:CryptoCloneApp.Converters"
              x:Class="CryptoCloneApp.Views.Pages.WalletPage"
              Style="{DynamicResource BackgroundGradient}"
              >
-    <VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NumberIsPositiveConverter x:Key="NumberIsPositiveConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="60, 130, 50, 60, *, 60">
         <local:Header/>
-        
-        <Label 
-            Style="{StaticResource LabelTitle}"
-            Text="Deposit Page"
-            />
-    </VerticalStackLayout>
+
+        <Grid Grid.Row="1" 
+              >
+            <Border HeightRequest="116"
+                    VerticalOptions="Start"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    Stroke="{DynamicResource StrokeControlBorder}"
+                    BackgroundColor="{DynamicResource BackgroundControlBorderStrong}"
+                    >
+                <!--
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0"
+                                     EndPoint="0,0.45">
+                        <GradientStop Color="{DynamicResource BackgroundGradientColor2}" Offset="0.0"  />
+                        <GradientStop Color="{DynamicResource BackgroundGradientColor1}" Offset="0.60" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                -->
+
+                <VerticalStackLayout Padding="30,15">
+                    <Label  
+                        Style="{StaticResource LabelTitle}"
+                        HorizontalTextAlignment="Start"
+                        FontSize="40"
+                        Text="15.2 ETH"
+                        />
+
+                    <Label  
+                        Style="{StaticResource LabelSubTitle}"
+                        HorizontalTextAlignment="Start"
+                        TextColor="{DynamicResource ItemTextColorSecondary}"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="$10.233,23"
+                        />
+                </VerticalStackLayout>
+            </Border>
+
+            <Image Source="icon_crypto_eth.png"
+                   Grid.RowSpan="2"
+                   HorizontalOptions="End"
+                   HeightRequest="200"
+                   TranslationY="-20"
+                   TranslationX="20"
+                   >
+                <Image.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="20,20"
+                            Radius="40"
+                            Opacity="0.8" />
+                </Image.Shadow>
+            </Image>
+        </Grid>
+
+        <Button Text="Adicionar fundos"
+                Style="{StaticResource GradientButton}"
+                Grid.Row="2"    
+                />
+
+        <Label  
+                Style="{StaticResource LabelTitle}"
+                FontSize="20"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Start"
+                Text="Últimas atividades"
+                Grid.Row="3" 
+                />
+
+        <Border Grid.Row="4" 
+                VerticalOptions="Start"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 10"
+                Stroke="{DynamicResource StrokeControlBorder}"
+                BackgroundColor="{DynamicResource BackgroundControlBorderStrong}"
+                >
+
+
+            <CollectionView x:Name="collectionViewNfts" >
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="0"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type models:WalletTransaction}">
+                        <models:WalletTransaction
+                                Id="843.555.0130"
+                                Date="23.01.20222 13:54"
+                                EthBalance="1.2"
+                                UsdValue="1242.88"
+                            />
+
+                        <models:WalletTransaction
+                                Id="907.555.0101"
+                                Date="23.01.20222 13:54"
+                                EthBalance="-1.2"
+                                UsdValue="1242.88"
+                            />
+
+                        <models:WalletTransaction
+                                Id="908.555.01.21"
+                                Date="23.01.20222 13:54"
+                                EthBalance="1.2"
+                                UsdValue="1242.88"
+                            />
+
+                        <models:WalletTransaction
+                                Id="225.555.0118"
+                                Date="23.01.20222 13:54"
+                                EthBalance="1.2"
+                                UsdValue="1242.88"
+                            />
+
+                        <models:WalletTransaction
+                                Id="207.555.0119"
+                                Date="23.01.20222 13:54"
+                                EthBalance="-1.2"
+                                UsdValue="1242.88"
+                            />
+
+                        <models:WalletTransaction
+                                Id="205.555.0100"
+                                Date="23.01.20222 13:54"
+                                EthBalance="-1.2"
+                                UsdValue="1242.88"
+                            />
+
+                        <models:WalletTransaction
+                                Id="406.555.0120"
+                                Date="23.01.20222 13:54"
+                                EthBalance="1.2"
+                                UsdValue="1242.88"
+                            />
+                    </x:Array>
+                </CollectionView.ItemsSource>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:WalletTransaction}">
+                        <Grid 
+                              RowDefinitions="7,30,30,5"
+                              ColumnDefinitions="50,1.25*,*,15"
+                              ColumnSpacing="5"
+                              >
+                           
+                            <Image HeightRequest="30"
+                                   Aspect="AspectFit"
+                                   Grid.RowSpan="3"
+                               >
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
+                                        <Setter Property="Source" Value="icon_positive_transaction.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
+                                        <Setter Property="Source" Value="icon_negative_transaction.png"/>
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+
+
+                            <Label  Style="{StaticResource LabelNormal}"
+                                    HorizontalTextAlignment="Start"
+                                    VerticalTextAlignment="End"
+                                    Text="{Binding Id}"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    TextColor="{DynamicResource ItemTextColorPrimary}"
+                                    />
+
+                            <Label  Style="{StaticResource LabelNormal}"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Date}"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    >
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
+                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
+                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                            <Label  Style="{StaticResource LabelNormal}"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding EthBalance, StringFormat='{0} ETH'}"
+                                    VerticalTextAlignment="End"
+                                    FontAttributes="Bold"
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                >
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
+                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                        <Setter Property="Text" Value="{Binding EthBalance, StringFormat='+{0} ETH'}"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
+                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                            <Label  Style="{StaticResource LabelNormal}"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding UsdValue,StringFormat='${0}'}"
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                >
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
+                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
+                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                            <StackLayout 
+                                  HeightRequest="1"
+                                  BackgroundColor="#474053"
+                                  Grid.ColumnSpan="4"
+                                  Grid.Row="3"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+        <Button Style="{StaticResource OutlinedButton}"
+                Text="Carregar mais"
+                VerticalOptions="End"
+                Grid.Row="5" 
+                />
+    </Grid>
 </ContentPage>

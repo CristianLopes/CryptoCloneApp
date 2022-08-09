@@ -71,29 +71,29 @@
 
 
                             <Line X1="{Binding Width, Source={x:Reference border}}"
-                              Stroke="{DynamicResource BorderColor}"
-                              />
+                                  Stroke="{DynamicResource BorderColor}"
+                                  />
 
 
                             <local:TextField
-                            PrefixIcon="icon_password_dark.png"
-                            SuffixIcon="icon_eye_dark.png"
-                            Placeholder="Senha"
-                            IsPassword="True"
-                            />
+                                PrefixIcon="icon_password_dark.png"
+                                SuffixIcon="icon_eye_dark.png"
+                                Placeholder="Senha"
+                                IsPassword="True"
+                                />
 
                         </VerticalStackLayout>
                     </Border>
 
                     <Label
-                    Text="Recuperar a senha?"
-                    SemanticProperties.HeadingLevel="Level2"
-                    SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
-                    FontSize="12"
-                    FontFamily="InterRegular"
-                    TextColor="{AppThemeBinding Light={StaticResource PrimaryDark}, Dark={StaticResource Secondary}}"
-                    HorizontalOptions="End"
-                    />
+                        Text="Recuperar a senha?"
+                        SemanticProperties.HeadingLevel="Level2"
+                        SemanticProperties.Description="O maior marketplace de NFTs do Brasil"
+                        FontSize="12"
+                        FontFamily="InterRegular"
+                        TextColor="{AppThemeBinding Light={StaticResource PrimaryDark}, Dark={StaticResource Secondary}}"
+                        HorizontalOptions="End"
+                        />
                 </VerticalStackLayout>
 
 
