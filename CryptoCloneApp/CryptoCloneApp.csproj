@@ -54,8 +54,6 @@
 	  <None Remove="Resources\Fonts\Inter-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Inter-Medium.ttf" />
 	  <None Remove="Resources\Fonts\Inter-Regular.ttf" />
-	  <None Remove="Resources\Images\avatars\avatar_feux.png" />
-	  <None Remove="Resources\Images\avatars\avatar_freed.png" />
 	  <None Remove="Resources\Images\nfts\0.png" />
 	  <None Remove="Resources\Images\nfts\1.png" />
 	  <None Remove="Resources\Images\nfts\2.png" />
@@ -88,7 +86,6 @@
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\AppIcon\logo_crypto.png" />
-	  <MauiImage Include="Resources\Images\avatars\avatar_feux.png" />
 	  <MauiImage Include="Resources\Images\avatars\avatar_hacker.png" />
 	  <MauiImage Include="Resources\Images\nfts\nft_0.png" />
 	  <MauiImage Include="Resources\Images\nfts\nft_1.png" />

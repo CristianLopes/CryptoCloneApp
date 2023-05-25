@@ -21,4 +21,3 @@ namespace CryptoCloneApp.Converters
         }
     }
 }
-

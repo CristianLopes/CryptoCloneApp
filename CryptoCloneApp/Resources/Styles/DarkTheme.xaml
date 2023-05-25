@@ -11,14 +11,4 @@
     <Color x:Key="BackgroundButtonGradientColor1">#9A4DFF</Color>
     <Color x:Key="BackgroundButtonGradientColor2">#F600DD</Color>
     <Color x:Key="FontColorNormal">White</Color>
-
-    <Color x:Key="BackgroundControlBorder">#474053</Color>
-    <Color x:Key="StrokeControlBorder">#919191</Color>
-
-    <Color x:Key="BackgroundControlBorderStrong">#25202c</Color>
-
-    <Color x:Key="ItemTextColorPrimary">White</Color>
-    <Color x:Key="ItemTextColorSecondary">#FF86FF</Color>
-    <Color x:Key="ItemTextColorTerciary">#5EEBFF</Color>
-
 </ResourceDictionary>

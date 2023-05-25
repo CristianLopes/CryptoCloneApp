@@ -22,8 +22,8 @@
                     VerticalOptions="Start"
                     StrokeThickness="1"
                     StrokeShape="RoundRectangle 10"
-                    Stroke="{DynamicResource StrokeControlBorder}"
-                    BackgroundColor="{DynamicResource BackgroundControlBorderStrong}"
+                    Stroke="#474053"
+                    BackgroundColor="#25202c"
                     >
                 <!--
                 <Border.Background>
@@ -46,7 +46,7 @@
                     <Label  
                         Style="{StaticResource LabelSubTitle}"
                         HorizontalTextAlignment="Start"
-                        TextColor="{DynamicResource ItemTextColorSecondary}"
+                        TextColor="#FF86FF"
                         FontAttributes="Bold"
                         FontSize="12"
                         Text="$10.233,23"
@@ -88,11 +88,9 @@
                 VerticalOptions="Start"
                 StrokeThickness="1"
                 StrokeShape="RoundRectangle 10"
-                Stroke="{DynamicResource StrokeControlBorder}"
-                BackgroundColor="{DynamicResource BackgroundControlBorderStrong}"
+                Stroke="#474053"
+                BackgroundColor="#25202c"
                 >
-
-
             <CollectionView x:Name="collectionViewNfts" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="0"/>
@@ -180,7 +178,6 @@
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     FontAttributes="Bold"
-                                    TextColor="{DynamicResource ItemTextColorPrimary}"
                                     />
 
                             <Label  Style="{StaticResource LabelNormal}"
@@ -191,10 +188,10 @@
                                     >
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                        <Setter Property="TextColor" Value="#5EEBFF"/>
                                     </DataTrigger>
                                     <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                        <Setter Property="TextColor" Value="#FF86FF"/>
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
@@ -209,11 +206,11 @@
                                 >
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                        <Setter Property="TextColor" Value="#5EEBFF"/>
                                         <Setter Property="Text" Value="{Binding EthBalance, StringFormat='+{0} ETH'}"/>
                                     </DataTrigger>
                                     <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                        <Setter Property="TextColor" Value="#FF86FF"/>
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
@@ -226,10 +223,10 @@
                                 >
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                        <Setter Property="TextColor" Value="#5EEBFF"/>
                                     </DataTrigger>
                                     <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                        <Setter Property="TextColor" Value="#FF86FF"/>
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>

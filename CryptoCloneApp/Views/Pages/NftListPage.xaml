@@ -11,20 +11,18 @@
 
         <Border x:Name="border"
                 HeightRequest="48"
-                Stroke="{DynamicResource StrokeControlBorder}"
                 StrokeThickness="1"
                 StrokeShape="RoundRectangle 24"
                 Margin="0,20,0,0"
-                BackgroundColor="{DynamicResource BackgroundControlBorder}"
+                BackgroundColor="#474053"
                 Grid.Row="1"
                 >
             <Grid Margin="14,0">
                 <Entry 
                     x:Name="entrySearch"
-                    TextColor="{AppThemeBinding Dark={StaticResource Gray200}, Light=Black}"
-                    PlaceholderColor="{AppThemeBinding Dark={StaticResource Gray400}, Light=Black}"
+                    TextColor="{StaticResource Gray200}"
+                    PlaceholderColor="{StaticResource Gray400}"
                     FontSize="14"
-                    FontFamily="{StaticResource FontBold}"
                     Margin="30,4,0,0"
                     Placeholder="Pesquise por categorias, artistas..."
                     Focused="Entry_Focused"
@@ -62,9 +60,8 @@
                             HeightRequest="35"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle 24"
-                            Stroke="{DynamicResource StrokeControlBorder}"
                             Margin="0,24"
-                            BackgroundColor="{DynamicResource BackgroundControlBorder}"
+                            BackgroundColor="#474053"
                              >
                         <Label Text="{Binding .}"
                                FontFamily="{StaticResource FontBold}"
@@ -168,17 +165,16 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type models:NftListItem}">
-                    <Border  StrokeShape="RoundRectangle 12">
-                        <Grid HeightRequest="360"
+                    <Grid HeightRequest="360"
                           RowDefinitions="*,80">
-                            <Image Source="{Binding Image}"
+                        <Image Source="{Binding Image}"
                                Aspect="AspectFill"
                                Grid.RowSpan="2"
                                />
 
 
 
-                            <BoxView 
+                        <BoxView 
                                 Color="{StaticResource Gray900}"
                                 Grid.Row="1"
                                 Opacity="0.5"
@@ -186,7 +182,7 @@
 
 
 
-                            <Grid ColumnDefinitions="40,*,*"
+                        <Grid ColumnDefinitions="40,*,*"
                               RowDefinitions="*,*"
                               HeightRequest="80"
                               Grid.Row="1"
@@ -194,31 +190,31 @@
                               ColumnSpacing="12"
                               >
 
-                                <Image Source="{Binding OwnerImage}"
+                            <Image Source="{Binding OwnerImage}"
                                    VerticalOptions="Center"
                                    Grid.RowSpan="2"
                                    />
 
-                                <Label Grid.Column="1" 
+                            <Label Grid.Column="1" 
                                    Text="Owned by"
                                    FontSize="12"
                                    TextColor="#FFA7FF"
                                    />
 
-                                <Label Grid.Row="1"
+                            <Label Grid.Row="1"
                                    Grid.Column="1" 
                                    FontSize="18"
                                    FontFamily="{StaticResource FontBold}"
                                    Text="{Binding OwnerName}"
                                    />
 
-                                <Label Grid.Column="2"
+                            <Label Grid.Column="2"
                                    FontSize="12"
                                    TextColor="#FFA7FF"
                                    Text="{Binding UsdPrice}"
                                       HorizontalTextAlignment="End"
                                    />
-                                <Label Grid.Row="1" 
+                            <Label Grid.Row="1" 
                                    Grid.Column="2"  
                                    Text="{Binding EthPrice}"
                                    FontSize="18"
@@ -226,11 +222,10 @@
                                    HorizontalTextAlignment="End"
                                    />
 
-                            </Grid>
-
-
                         </Grid>
-                    </Border>
+
+
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

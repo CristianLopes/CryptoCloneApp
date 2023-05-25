@@ -27,17 +27,17 @@
                 StrokeThickness="1"
                 StrokeShape="RoundRectangle 24"
                 Margin="0,20,0,0"
-                Stroke="{DynamicResource StrokeControlBorder}"
-                BackgroundColor="{DynamicResource BackgroundControlBorder}"
+                Stroke="#F600DD"
+                BackgroundColor="#474053"
                 Grid.Row="3"
                 >
 
             <Grid Margin="14,0">
                 <Label 
                     Style="{StaticResource LabelNormal}"
-                    TextColor="{DynamicResource ItemTextColorPrimary}"
+                    TextColor="{StaticResource White}"
                     FontSize="14"
-                    FontFamily="{StaticResource FontBold}"
+                    FontAttributes="Bold"
                     Text="Últimos 7 dias"
                     VerticalTextAlignment="Center"
                     HorizontalTextAlignment="Start"
@@ -55,8 +55,8 @@
                 VerticalOptions="Start"
                 StrokeThickness="1"
                 StrokeShape="RoundRectangle 10"
-                Stroke="{DynamicResource StrokeControlBorder}"
-                BackgroundColor="{DynamicResource BackgroundControlBorder}"
+                Stroke="#474053"
+                BackgroundColor="#25202c"
                 Margin="0,10"
                 >
             <CollectionView x:Name="collectionViewNfts" >
@@ -144,7 +144,7 @@
                                 <Label Style="{StaticResource LabelTitle}"
                                        Text="{Binding Position}"
                                        VerticalTextAlignment="Center"
-                                       TextColor="{DynamicResource ItemTextColorSecondary}"
+                                       TextColor="#FF86FF"
                                        FontSize="20"
                                    />
 
@@ -171,7 +171,7 @@
                                     Text="{Binding Instagram}"
                                     Grid.Row="2"
                                     Grid.Column="1"
-                                    TextColor="{DynamicResource ItemTextColorTerciary}"
+                                    TextColor="#5EEBFF"
                                     />
 
 
@@ -227,19 +227,21 @@
                                         >
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label" Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                            <Setter Property="TextColor" Value="{DynamicResource ItemTextColorTerciary}"/>
+                                            <Setter Property="TextColor" Value="#5EEBFF"/>
                                         </DataTrigger>
                                         <DataTrigger TargetType="Label" Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                            <Setter Property="TextColor" Value="{DynamicResource ItemTextColorSecondary}"/>
+                                            <Setter Property="TextColor" Value="#FF86FF"/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
                             </StackLayout>
 
 
+
+
                             <StackLayout 
                                   HeightRequest="1"
-                                  BackgroundColor="{DynamicResource StrokeControlBorder}"
+                                  BackgroundColor="#474053"
                                   Grid.ColumnSpan="4"
                                   Grid.Row="3"/>
 
