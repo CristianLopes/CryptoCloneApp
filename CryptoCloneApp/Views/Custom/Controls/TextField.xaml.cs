@@ -5,16 +5,16 @@ namespace CryptoCloneApp.Views.Custom.Controls;
 public partial class TextField : ContentView
 {
     public static readonly BindableProperty PrefixIconProperty =
-			BindableProperty.Create("PrefixIcon", typeof(ImageSource), typeof(TextField));
+			BindableProperty.Create(nameof(PrefixIcon), typeof(ImageSource), typeof(TextField));
 
     public static readonly BindableProperty SuffixIconProperty =
-            BindableProperty.Create("SuffixIcon", typeof(ImageSource), typeof(TextField));
+            BindableProperty.Create(nameof(SuffixIcon), typeof(ImageSource), typeof(TextField));
 
     public static readonly BindableProperty PlaceholderProperty =
-        BindableProperty.Create("Placeholder", typeof(string), typeof(TextField));
+        BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(TextField));
 
     public static readonly BindableProperty IsPasswordProperty =
-        BindableProperty.Create("IsPassword", typeof(bool), typeof(TextField));
+        BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(TextField));
 
     public ImageSource PrefixIcon
     {
@@ -43,7 +43,7 @@ public partial class TextField : ContentView
     public TextField()
 	{
 		InitializeComponent();
-        App.ThemeChanged += OnThemeChanged;
+        //App.ThemeChanged += OnThemeChanged;
 	}
 
     private void OnThemeChanged(AppTheme currentTheme)
@@ -52,7 +52,8 @@ public partial class TextField : ContentView
         suffixImage.Behaviors.Clear();
         var behavior = new IconTintColorBehavior
         {
-            TintColor = currentTheme == AppTheme.Dark ? App.IconColorDarkTheme : App.IconColorLightTheme,
+            TintColor = currentTheme == AppTheme.Dark ? Colors.Red : Colors.Green,
+            //App.IconColorDarkTheme : App.IconColorLightTheme,
         };
 
         prefixImage.Behaviors.Add(behavior);

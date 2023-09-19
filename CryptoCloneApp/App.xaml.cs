@@ -1,4 +1,6 @@
-﻿using CryptoCloneApp.Resources.Styles;
+﻿using CryptoCloneApp.Handlers;
+using CryptoCloneApp.Resources.Styles;
+
 namespace CryptoCloneApp;
 
 public partial class App : Application
@@ -18,6 +20,7 @@ public partial class App : Application
 
 		InitTheme();
         MainPage = new AppShell();
+        BorderlessEntryHandler.Apply();
     }
 
     public static void Set(IServiceProvider serviceProvider)

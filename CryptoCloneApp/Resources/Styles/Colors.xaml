@@ -4,6 +4,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <Color x:Key="BackgroundGradientColor1Light">#EFCCDD</Color>
+    <Color x:Key="BackgroundGradientColor2Light">#9EA7DD</Color>
+    <Color x:Key="FontColorTitleLight">#141414</Color>
+    <Color x:Key="FontColorSubTitleLight">#404040</Color>
+    <Color x:Key="IconColorLight">#141414</Color>
+    <Color x:Key="BorderColorLight">#141414</Color>
+    <Color x:Key="BackgroundButtonGradientColor1Light">#0093CD</Color>
+    <Color x:Key="BackgroundButtonGradientColor2Light">#5EEBFF</Color>
+    <Color x:Key="FontColorNormalLight">#141414</Color>
+
+    <Color x:Key="BackgroundGradientColor1Dark">#454545</Color>
+    <Color x:Key="BackgroundGradientColor2Dark">#121212</Color>
+    <Color x:Key="FontColorTitleDark">White</Color>
+    <Color x:Key="FontColorSubTitleDark">#919191</Color>
+    <Color x:Key="IconColorDark">White</Color>
+    <Color x:Key="BorderColorDark">#919191</Color>
+    <Color x:Key="BackgroundButtonGradientColor1Dark">#9A4DFF</Color>
+    <Color x:Key="BackgroundButtonGradientColor2Dark">#F600DD</Color>
+    <Color x:Key="FontColorNormalDark">White</Color>
+
     <Color x:Key="Primary">#9A4DFF</Color>
     <Color x:Key="PrimaryLight">#7F35FF</Color>
     <Color x:Key="PrimaryDark">#4000F3</Color>

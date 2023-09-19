@@ -1,52 +1,50 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CryptoCloneApp.Views.Custom.Controls.TextField"
-             xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:DataType="local:TextField"
-             x:Name="this"
-             >
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="CryptoCloneApp.Views.Custom.Controls.TextField"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="this"
+    x:DataType="local:TextField"
+    >
 
-    <Grid  ColumnDefinitions="20,*,20"
-           ColumnSpacing="15"
-           Margin="15,5"
-           HeightRequest="50"
-           >
+    <Grid
+        Margin="15,5"
+        ColumnDefinitions="20,*,20"
+        ColumnSpacing="15"
+        HeightRequest="50"
+        >
 
-        <Image  x:Name="prefixImage"
-                Source="{Binding PrefixIcon, Source={x:Reference this}}"
-                HeightRequest="20"
-                VerticalOptions="Center"
-                HorizontalOptions="Start"
-               >
+        <Image
+            x:Name="prefixImage"
+            HeightRequest="20"
+            HorizontalOptions="Center"
+            Source="{Binding PrefixIcon, Source={x:Reference this}}"
+            VerticalOptions="Center"
+            WidthRequest="20"
+            >
             <Image.Behaviors>
-                <toolkit:IconTintColorBehavior TintColor="{StaticResource IconColor}" />
+                <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource IconColorLight}, Dark={StaticResource IconColorDark}}" />
             </Image.Behaviors>
         </Image>
 
- 
+        <local:BorderlessEntry
+            Grid.Column="1"
+            IsPassword="{Binding IsPassword, Source={x:Reference this}}"
+            Placeholder="{Binding Placeholder, Source={x:Reference this}}"
+            VerticalOptions="Center"
+            />
 
-        <Entry Grid.Column="1"
-               Placeholder="{Binding Placeholder, Source={x:Reference this}}"
-               ClearButtonVisibility="WhileEditing"
-               IsSpellCheckEnabled="False"
-               HorizontalOptions="FillAndExpand"
-               VerticalOptions="CenterAndExpand"
-               TextColor="{DynamicResource BorderColor}"
-               PlaceholderColor="{DynamicResource BorderColor}"
-               IsPassword="{Binding IsPassword, Source={x:Reference this}}"
-              />
-
-
-
-        <Image x:Name="suffixImage"
-               Source="{Binding SuffixIcon, Source={x:Reference this}}"
-               Grid.Column="2"
-               HeightRequest="20"
-               >
+        <Image
+            x:Name="suffixImage"
+            Grid.Column="2"
+            HeightRequest="20"
+            Source="{Binding SuffixIcon, Source={x:Reference this}}"
+            WidthRequest="20"
+            >
             <Image.Behaviors>
-                <toolkit:IconTintColorBehavior TintColor="{StaticResource IconColor}" />
+                <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource IconColorLight}, Dark={StaticResource IconColorDark}}" />
             </Image.Behaviors>
         </Image>
     </Grid>
