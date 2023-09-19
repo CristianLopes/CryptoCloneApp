@@ -1,236 +1,264 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
-             xmlns:models="clr-namespace:CryptoCloneApp.Models"
-             x:Class="CryptoCloneApp.Views.Pages.RankingPage"
-             Style="{DynamicResource BackgroundGradient}"
-             >
-    <Grid RowDefinitions="60, 55, 50, 60, *, 60">
-        <local:Header/>
-        
-        <Label 
+<ContentPage
+    x:Class="CryptoCloneApp.Views.Pages.RankingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
+    xmlns:models="clr-namespace:CryptoCloneApp.Models"
+    >
+    <Grid RowDefinitions="60, 55, 50, 60, *, 60" 
+          Style="{DynamicResource BackgroundGradient}" Padding="16">
+        <local:Header />
+
+        <Label
+            Grid.Row="1"
             Style="{StaticResource LabelTitle}"
             Text="Ranking"
-            Grid.Row="1"
             />
 
-        <Label 
+        <Label
+            Grid.Row="2"
+            Padding="50,0"
             Style="{StaticResource LabelSubTitle}"
             Text="Os top NFTs rankeados por volume de venda e valores!"
-            Padding="50,0"
-            Grid.Row="2"
             />
 
-        <Border 
-                HeightRequest="36"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle 24"
-                Margin="0,20,0,0"
-                Stroke="#F600DD"
-                BackgroundColor="#474053"
-                Grid.Row="3"
-                >
+        <Border
+            Grid.Row="3"
+            Margin="0,20,0,0"
+            BackgroundColor="#474053"
+            HeightRequest="36"
+            Stroke="#F600DD"
+            StrokeShape="RoundRectangle 24"
+            StrokeThickness="1"
+            >
 
             <Grid Margin="14,0">
-                <Label 
-                    Style="{StaticResource LabelNormal}"
-                    TextColor="{StaticResource White}"
-                    FontSize="14"
+                <Label
                     FontAttributes="Bold"
-                    Text="Últimos 7 dias"
-                    VerticalTextAlignment="Center"
+                    FontSize="14"
                     HorizontalTextAlignment="Start"
-                />
+                    Style="{StaticResource LabelNormal}"
+                    Text="Últimos 7 dias"
+                    TextColor="{StaticResource White}"
+                    VerticalTextAlignment="Center"
+                    />
 
-                <Image x:Name="iconSearch"
-                       Source="icon_dropdown.png" 
-                       HorizontalOptions="End"
-                       >
-                </Image>
+                <Image
+                    x:Name="iconSearch"
+                    HorizontalOptions="End"
+                    Source="icon_dropdown.png"
+                    />
             </Grid>
         </Border>
 
-        <Border Grid.Row="4" 
-                VerticalOptions="Start"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle 10"
-                Stroke="#474053"
-                BackgroundColor="#25202c"
-                Margin="0,10"
-                >
-            <CollectionView x:Name="collectionViewNfts" >
+        <Border
+            Grid.Row="4"
+            Margin="0,10"
+            BackgroundColor="#25202c"
+            Stroke="#474053"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="1"
+            VerticalOptions="Start"
+            >
+            <CollectionView x:Name="collectionViewNfts">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="0"/>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type models:RankItem}">
                         <models:RankItem
-                                Position="1"
-                                Image="ranking/image_brandon.png"
-                                Name="Brandon"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Brandon"
+                            EthAmount="333222"
+                            Image="ranking/image_brandon.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="1"
                             />
 
                         <models:RankItem
-                                Position="2"
-                                Image="ranking/image_mitchell.png"
-                                Name="Mitchell"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Mitchell"
+                            EthAmount="333222"
+                            Image="ranking/image_mitchell.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="2"
                             />
 
                         <models:RankItem
-                                Position="3"
-                                Image="ranking/image_gladys.png"
-                                Name="Gladys"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Gladys"
+                            EthAmount="333222"
+                            Image="ranking/image_gladys.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="3"
                             />
 
                         <models:RankItem
-                                Position="4"
-                                Image="ranking/image_floyd.png"
-                                Name="Floyd"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Floyd"
+                            EthAmount="333222"
+                            Image="ranking/image_floyd.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="4"
                             />
 
                         <models:RankItem
-                                Position="5"
-                                Image="ranking/image_kristin.png"
-                                Name="Kristin"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Kristin"
+                            EthAmount="333222"
+                            Image="ranking/image_kristin.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="5"
                             />
 
                         <models:RankItem
-                                Position="6"
-                                Image="ranking/image_wendy.png"
-                                Name="Wendy"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Wendy"
+                            EthAmount="333222"
+                            Image="ranking/image_wendy.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="6"
                             />
 
                         <models:RankItem
-                                Position="7"
-                                Image="ranking/image_cody.png"
-                                Name="Cody"
-                                Instagram="@brandonNFT"
-                                EthAmount="333222"
-                                PercentageVariation="20"
+                            Name="Cody"
+                            EthAmount="333222"
+                            Image="ranking/image_cody.png"
+                            Instagram="@brandonNFT"
+                            PercentageVariation="20"
+                            Position="7"
                             />
                     </x:Array>
                 </CollectionView.ItemsSource>
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:RankItem}">
-                        <Grid 
-                              RowDefinitions="7,30,30,5"
-                              ColumnDefinitions="70,*,*,5"
-                              ColumnSpacing="15"
-                              >
+                        <Grid
+                            ColumnDefinitions="70,*,*,5"
+                            ColumnSpacing="15"
+                            RowDefinitions="7,30,30,5"
+                            >
 
-                            <HorizontalStackLayout Grid.RowSpan="3" 
-                                                   Padding="10,0"
-                                                   Spacing="8">
-                                <Label Style="{StaticResource LabelTitle}"
-                                       Text="{Binding Position}"
-                                       VerticalTextAlignment="Center"
-                                       TextColor="#FF86FF"
-                                       FontSize="20"
-                                   />
+                            <HorizontalStackLayout
+                                Grid.RowSpan="3"
+                                Padding="10,0"
+                                Spacing="8"
+                                >
+                                <Label
+                                    FontSize="20"
+                                    Style="{StaticResource LabelTitle}"
+                                    Text="{Binding Position}"
+                                    TextColor="#FF86FF"
+                                    VerticalTextAlignment="Center"
+                                    />
 
-                                <Image Source="{Binding Image}"
-                                       Aspect="AspectFit"
-                                       Grid.RowSpan="3"
-                                       />
+                                <Image
+                                    Grid.RowSpan="3"
+                                    Aspect="AspectFit"
+                                    Source="{Binding Image}"
+                                    />
 
                             </HorizontalStackLayout>
 
 
 
-                            <Label  Style="{StaticResource LabelNormal}"
-                                    HorizontalTextAlignment="Start"
-                                    VerticalTextAlignment="End"
-                                    Text="{Binding Name}"
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    FontAttributes="Bold"
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelNormal}"
+                                Text="{Binding Name}"
+                                VerticalTextAlignment="End"
+                                />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelNormal}"
+                                Text="{Binding Instagram}"
+                                TextColor="#5EEBFF"
+                                />
+
+
+                            <StackLayout
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Orientation="Horizontal"
+                                >
+                                <Image
+                                    Margin="0,0,7,0"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="ranking/icon_eth.png"
+                                    VerticalOptions="Center"
                                     />
-
-                            <Label  Style="{StaticResource LabelNormal}"
-                                    HorizontalTextAlignment="Start"
-                                    Text="{Binding Instagram}"
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    TextColor="#5EEBFF"
-                                    />
-
-
-                            <StackLayout   
-                                    Orientation="Horizontal"                             
+                                <Label
                                     Grid.Row="1"
                                     Grid.Column="2"
-                                    >
-                                    <Image Source="ranking/icon_eth.png"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="EndAndExpand"
-                                           Margin="0,0,7,0"
-                                           />
-                                    <Label  
-                                        Style="{StaticResource LabelNormal}"
-                                        HorizontalTextAlignment="End"
-                                        Text="{Binding EthAmount, StringFormat='{0} ETH'}"
-                                        VerticalTextAlignment="Center"
-                                        FontAttributes="Bold"
-                                        Grid.Row="1"
-                                        Grid.Column="2"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="End"
+                                    Style="{StaticResource LabelNormal}"
+                                    Text="{Binding EthAmount, StringFormat='{0} ETH'}"
+                                    VerticalTextAlignment="Center"
                                     />
                             </StackLayout>
 
 
-                            <StackLayout   
-                                    Orientation="Horizontal"
-                                    Grid.Row="2"
-                                    Grid.Column="2"
-                                    Spacing="5">
-                                <Image Source="ranking/icon_up.png"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="EndAndExpand"
-                                        Margin="0,0,7,0"
-                                        >
+                            <StackLayout
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Orientation="Horizontal"
+                                Spacing="5"
+                                >
+                                <Image
+                                    Margin="0,0,7,0"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="ranking/icon_up.png"
+                                    VerticalOptions="Center"
+                                    >
                                     <Image.Triggers>
-                                        <DataTrigger TargetType="Image" Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                            <Setter Property="Source" Value="ranking/icon_up.png"/>
+                                        <DataTrigger
+                                            Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}"
+                                            TargetType="Image"
+                                            Value="True"
+                                            >
+                                            <Setter Property="Source" Value="ranking/icon_up.png" />
                                         </DataTrigger>
-                                        <DataTrigger TargetType="Image" Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                            <Setter Property="Source" Value="ranking/icon_down.png"/>
+                                        <DataTrigger
+                                            Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}"
+                                            TargetType="Image"
+                                            Value="False"
+                                            >
+                                            <Setter Property="Source" Value="ranking/icon_down.png" />
                                         </DataTrigger>
                                     </Image.Triggers>
                                 </Image>
-                                
-                                <Label  Style="{StaticResource LabelNormal}"
-                                        HorizontalTextAlignment="End"
-                                        HorizontalOptions="End"
-                                        VerticalTextAlignment="Center"
-                                        Text="{Binding PercentageVariation,StringFormat='${0}'}"
-                                        Grid.Row="2"
-                                        Grid.Column="2"
-                                        >
+
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"
+                                    Style="{StaticResource LabelNormal}"
+                                    Text="{Binding PercentageVariation, StringFormat='${0}'}"
+                                    VerticalTextAlignment="Center"
+                                    >
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="Label" Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                            <Setter Property="TextColor" Value="#5EEBFF"/>
+                                        <DataTrigger
+                                            Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}"
+                                            TargetType="Label"
+                                            Value="True"
+                                            >
+                                            <Setter Property="TextColor" Value="#5EEBFF" />
                                         </DataTrigger>
-                                        <DataTrigger TargetType="Label" Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                            <Setter Property="TextColor" Value="#FF86FF"/>
+                                        <DataTrigger
+                                            Binding="{Binding PercentageVariation, Converter={StaticResource NumberIsPositiveConverter}}"
+                                            TargetType="Label"
+                                            Value="False"
+                                            >
+                                            <Setter Property="TextColor" Value="#FF86FF" />
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -239,11 +267,12 @@
 
 
 
-                            <StackLayout 
-                                  HeightRequest="1"
-                                  BackgroundColor="#474053"
-                                  Grid.ColumnSpan="4"
-                                  Grid.Row="3"/>
+                            <StackLayout
+                                Grid.Row="3"
+                                Grid.ColumnSpan="4"
+                                BackgroundColor="#474053"
+                                HeightRequest="1"
+                                />
 
                         </Grid>
                     </DataTemplate>
@@ -251,11 +280,12 @@
             </CollectionView>
         </Border>
 
-        <Button Style="{StaticResource OutlinedButton}"
-                Text="Carregar mais"
-                VerticalOptions="End"
-                Grid.Row="5" 
-                />
+        <Button
+            Grid.Row="5"
+            Style="{StaticResource OutlinedButton}"
+            Text="Carregar mais"
+            VerticalOptions="End"
+            />
 
     </Grid>
 </ContentPage>

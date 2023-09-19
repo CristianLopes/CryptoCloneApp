@@ -1,241 +1,274 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
-             xmlns:models="clr-namespace:CryptoCloneApp.Models"
-             xmlns:converters="clr-namespace:CryptoCloneApp.Converters"
-             x:Class="CryptoCloneApp.Views.Pages.WalletPage"
-             Style="{DynamicResource BackgroundGradient}"
-             >
+<ContentPage
+    x:Class="CryptoCloneApp.Views.Pages.WalletPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:CryptoCloneApp.Converters"
+    xmlns:local="clr-namespace:CryptoCloneApp.Views.Custom.Controls"
+    xmlns:models="clr-namespace:CryptoCloneApp.Models"
+    >
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converters:NumberIsPositiveConverter x:Key="NumberIsPositiveConverter"/>
+            <converters:NumberIsPositiveConverter x:Key="NumberIsPositiveConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="60, 130, 50, 60, *, 60">
-        <local:Header/>
+    <Grid RowDefinitions="60, 130, 50, 60, *, 60" Style="{DynamicResource BackgroundGradient}" Padding="16">
+        <local:Header />
 
-        <Grid Grid.Row="1" 
-              >
-            <Border HeightRequest="116"
-                    VerticalOptions="Start"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 10"
-                    Stroke="#474053"
-                    BackgroundColor="#25202c"
-                    >
-                <!--
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="1,0"
-                                     EndPoint="0,0.45">
-                        <GradientStop Color="{DynamicResource BackgroundGradientColor2}" Offset="0.0"  />
-                        <GradientStop Color="{DynamicResource BackgroundGradientColor1}" Offset="0.60" />
-                    </LinearGradientBrush>
-                </Border.Background>
-                -->
-
+        <Grid Grid.Row="1">
+            <Border
+                BackgroundColor="#25202c"
+                HeightRequest="116"
+                Stroke="#474053"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="1"
+                VerticalOptions="Start"
+                >
                 <VerticalStackLayout Padding="30,15">
-                    <Label  
-                        Style="{StaticResource LabelTitle}"
-                        HorizontalTextAlignment="Start"
+                    <Label
                         FontSize="40"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelTitle}"
                         Text="15.2 ETH"
                         />
 
-                    <Label  
-                        Style="{StaticResource LabelSubTitle}"
-                        HorizontalTextAlignment="Start"
-                        TextColor="#FF86FF"
+                    <Label
                         FontAttributes="Bold"
                         FontSize="12"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelSubTitle}"
                         Text="$10.233,23"
+                        TextColor="#FF86FF"
                         />
                 </VerticalStackLayout>
             </Border>
 
-            <Image Source="icon_crypto_eth.png"
-                   Grid.RowSpan="2"
-                   HorizontalOptions="End"
-                   HeightRequest="200"
-                   TranslationY="-20"
-                   TranslationX="20"
-                   >
+            <Image
+                Grid.RowSpan="2"
+                HeightRequest="200"
+                HorizontalOptions="End"
+                Source="icon_crypto_eth.png"
+                TranslationX="20"
+                TranslationY="-20"
+                >
                 <Image.Shadow>
-                    <Shadow Brush="Black"
-                            Offset="20,20"
-                            Radius="40"
-                            Opacity="0.8" />
+                    <Shadow
+                        Brush="Black"
+                        Opacity="0.8"
+                        Radius="40"
+                        Offset="20,20"
+                        />
                 </Image.Shadow>
             </Image>
         </Grid>
 
-        <Button Text="Adicionar fundos"
-                Style="{StaticResource GradientButton}"
-                Grid.Row="2"    
-                />
+        <Button
+            Grid.Row="2"
+            Style="{StaticResource GradientButton}"
+            Text="Adicionar fundos"
+            />
 
-        <Label  
-                Style="{StaticResource LabelTitle}"
-                FontSize="20"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Start"
-                Text="Últimas atividades"
-                Grid.Row="3" 
-                />
+        <Label
+            Grid.Row="3"
+            FontSize="20"
+            HorizontalTextAlignment="Start"
+            Style="{StaticResource LabelTitle}"
+            Text="Últimas atividades"
+            VerticalTextAlignment="Center"
+            />
 
-        <Border Grid.Row="4" 
-                VerticalOptions="Start"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle 10"
-                Stroke="#474053"
-                BackgroundColor="#25202c"
-                >
-            <CollectionView x:Name="collectionViewNfts" >
+        <Border
+            Grid.Row="4"
+            BackgroundColor="#25202c"
+            Stroke="#474053"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="1"
+            VerticalOptions="Start"
+            >
+            <CollectionView x:Name="collectionViewNfts">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="0"/>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type models:WalletTransaction}">
                         <models:WalletTransaction
-                                Id="843.555.0130"
-                                Date="23.01.20222 13:54"
-                                EthBalance="1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="1.2"
+                            Id="843.555.0130"
+                            UsdValue="1242.88"
                             />
 
                         <models:WalletTransaction
-                                Id="907.555.0101"
-                                Date="23.01.20222 13:54"
-                                EthBalance="-1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="-1.2"
+                            Id="907.555.0101"
+                            UsdValue="1242.88"
                             />
 
                         <models:WalletTransaction
-                                Id="908.555.01.21"
-                                Date="23.01.20222 13:54"
-                                EthBalance="1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="1.2"
+                            Id="908.555.01.21"
+                            UsdValue="1242.88"
                             />
 
                         <models:WalletTransaction
-                                Id="225.555.0118"
-                                Date="23.01.20222 13:54"
-                                EthBalance="1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="1.2"
+                            Id="225.555.0118"
+                            UsdValue="1242.88"
                             />
 
                         <models:WalletTransaction
-                                Id="207.555.0119"
-                                Date="23.01.20222 13:54"
-                                EthBalance="-1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="-1.2"
+                            Id="207.555.0119"
+                            UsdValue="1242.88"
                             />
 
                         <models:WalletTransaction
-                                Id="205.555.0100"
-                                Date="23.01.20222 13:54"
-                                EthBalance="-1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="-1.2"
+                            Id="205.555.0100"
+                            UsdValue="1242.88"
                             />
 
                         <models:WalletTransaction
-                                Id="406.555.0120"
-                                Date="23.01.20222 13:54"
-                                EthBalance="1.2"
-                                UsdValue="1242.88"
+                            Date="23.01.20222 13:54"
+                            EthBalance="1.2"
+                            Id="406.555.0120"
+                            UsdValue="1242.88"
                             />
                     </x:Array>
                 </CollectionView.ItemsSource>
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:WalletTransaction}">
-                        <Grid 
-                              RowDefinitions="7,30,30,5"
-                              ColumnDefinitions="50,1.25*,*,15"
-                              ColumnSpacing="5"
-                              >
-                           
-                            <Image HeightRequest="30"
-                                   Aspect="AspectFit"
-                                   Grid.RowSpan="3"
-                               >
+                        <Grid
+                            ColumnDefinitions="50,1.25*,*,15"
+                            ColumnSpacing="5"
+                            RowDefinitions="7,30,30,5"
+                            >
+
+                            <Image
+                                Grid.RowSpan="3"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                >
                                 <Image.Triggers>
-                                    <DataTrigger TargetType="Image" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="Source" Value="icon_positive_transaction.png"/>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Image"
+                                        Value="True"
+                                        >
+                                        <Setter Property="Source" Value="icon_positive_transaction.png" />
                                     </DataTrigger>
-                                    <DataTrigger TargetType="Image" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="Source" Value="icon_negative_transaction.png"/>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Image"
+                                        Value="False"
+                                        >
+                                        <Setter Property="Source" Value="icon_negative_transaction.png" />
                                     </DataTrigger>
                                 </Image.Triggers>
                             </Image>
 
 
-                            <Label  Style="{StaticResource LabelNormal}"
-                                    HorizontalTextAlignment="Start"
-                                    VerticalTextAlignment="End"
-                                    Text="{Binding Id}"
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    FontAttributes="Bold"
-                                    />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelNormal}"
+                                Text="{Binding Id}"
+                                VerticalTextAlignment="End"
+                                />
 
-                            <Label  Style="{StaticResource LabelNormal}"
-                                    HorizontalTextAlignment="Start"
-                                    Text="{Binding Date}"
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    >
-                                <Label.Triggers>
-                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="TextColor" Value="#5EEBFF"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="TextColor" Value="#FF86FF"/>
-                                    </DataTrigger>
-                                </Label.Triggers>
-                            </Label>
-
-                            <Label  Style="{StaticResource LabelNormal}"
-                                    HorizontalTextAlignment="End"
-                                    Text="{Binding EthBalance, StringFormat='{0} ETH'}"
-                                    VerticalTextAlignment="End"
-                                    FontAttributes="Bold"
-                                    Grid.Row="1"
-                                    Grid.Column="2"
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelNormal}"
+                                Text="{Binding Date}"
                                 >
                                 <Label.Triggers>
-                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="TextColor" Value="#5EEBFF"/>
-                                        <Setter Property="Text" Value="{Binding EthBalance, StringFormat='+{0} ETH'}"/>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Label"
+                                        Value="True"
+                                        >
+                                        <Setter Property="TextColor" Value="#5EEBFF" />
                                     </DataTrigger>
-                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="TextColor" Value="#FF86FF"/>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Label"
+                                        Value="False"
+                                        >
+                                        <Setter Property="TextColor" Value="#FF86FF" />
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
 
-                            <Label  Style="{StaticResource LabelNormal}"
-                                    HorizontalTextAlignment="End"
-                                    Text="{Binding UsdValue,StringFormat='${0}'}"
-                                    Grid.Row="2"
-                                    Grid.Column="2"
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="End"
+                                Style="{StaticResource LabelNormal}"
+                                Text="{Binding EthBalance, StringFormat='{0} ETH'}"
+                                VerticalTextAlignment="End"
                                 >
                                 <Label.Triggers>
-                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="True">
-                                        <Setter Property="TextColor" Value="#5EEBFF"/>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Label"
+                                        Value="True"
+                                        >
+                                        <Setter Property="TextColor" Value="#5EEBFF" />
+                                        <Setter Property="Text" Value="{Binding EthBalance, StringFormat='+{0} ETH'}" />
                                     </DataTrigger>
-                                    <DataTrigger TargetType="Label" Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}" Value="False">
-                                        <Setter Property="TextColor" Value="#FF86FF"/>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Label"
+                                        Value="False"
+                                        >
+                                        <Setter Property="TextColor" Value="#FF86FF" />
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
 
-                            <StackLayout 
-                                  HeightRequest="1"
-                                  BackgroundColor="#474053"
-                                  Grid.ColumnSpan="4"
-                                  Grid.Row="3"/>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                HorizontalTextAlignment="End"
+                                Style="{StaticResource LabelNormal}"
+                                Text="{Binding UsdValue, StringFormat='${0}'}"
+                                >
+                                <Label.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Label"
+                                        Value="True"
+                                        >
+                                        <Setter Property="TextColor" Value="#5EEBFF" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding EthBalance, Converter={StaticResource NumberIsPositiveConverter}}"
+                                        TargetType="Label"
+                                        Value="False"
+                                        >
+                                        <Setter Property="TextColor" Value="#FF86FF" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                            <StackLayout
+                                Grid.Row="3"
+                                Grid.ColumnSpan="4"
+                                BackgroundColor="#474053"
+                                HeightRequest="1"
+                                />
 
                         </Grid>
                     </DataTemplate>
@@ -243,10 +276,11 @@
             </CollectionView>
         </Border>
 
-        <Button Style="{StaticResource OutlinedButton}"
-                Text="Carregar mais"
-                VerticalOptions="End"
-                Grid.Row="5" 
-                />
+        <Button
+            Grid.Row="5"
+            Style="{StaticResource OutlinedButton}"
+            Text="Carregar mais"
+            VerticalOptions="End"
+            />
     </Grid>
 </ContentPage>

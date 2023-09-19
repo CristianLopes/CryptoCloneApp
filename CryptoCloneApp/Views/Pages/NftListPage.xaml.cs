@@ -1,11 +1,14 @@
+using CryptoCloneApp.ViewModels;
+
 namespace CryptoCloneApp.Views.Pages;
 
 public partial class NftListPage : ContentPage
 {
-	public NftListPage()
+	public NftListPage(NftListPageViewModel viewModel)
 	{
 		InitializeComponent();
-	}
+		BindingContext = viewModel;
+    }
 
 	private void Entry_Focused(object sender, FocusEventArgs e)
 	{

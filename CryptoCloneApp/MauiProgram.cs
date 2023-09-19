@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Markup;
+using CryptoCloneApp.Services;
 using CryptoCloneApp.ViewModels;
 using CryptoCloneApp.Views.Custom.Controls;
 using CryptoCloneApp.Views.Pages;
@@ -39,6 +40,9 @@ public static class MauiProgram
 
         builder.Services.AddTransient<Header>();
         builder.Services.AddTransient<HeaderViewModel>();
+
+		//adding services
+        builder.Services.AddTransient<INftService, MockNftService>();
 
         return builder.Build();
 	}
