@@ -10,7 +10,7 @@
     </Style>
 
     <Style TargetType="local:BorderlessEntry">
-        <!--<Setter Property="ClearButtonVisibility" Value="WhileEditing"/>-->
+        <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
         <Setter Property="IsSpellCheckEnabled" Value="False"/>
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource BorderColorLight},Dark={StaticResource BorderColorDark}}"/>
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource BorderColorLight},Dark={StaticResource BorderColorDark}}"/>
